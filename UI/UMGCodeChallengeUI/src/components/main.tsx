@@ -12,7 +12,7 @@ const Main: React.FC = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!musicFile || !partnerFile || !partner || !date) {
-      setError("Todos los campos son requeridos");
+      setError("Fields are required, please check");
       return;
     }
 
@@ -32,7 +32,7 @@ const Main: React.FC = () => {
 
       if (!res.ok) {
         const errData = await res.json();
-        setError(errData.error || "Error al procesar la solicitud");
+        setError(errData.error || "Internal server error");
         setResults([]);
         return;
       }
@@ -83,7 +83,7 @@ const Main: React.FC = () => {
             onChange={(e) => setDate(e.target.value)}
           />
         </div>
-        <button type="submit">Buscar contratos</button>
+        <button type="submit">Find contracts</button>
       </form>
 
       {error && <p style={{ color: "red" }}>{error}</p>}

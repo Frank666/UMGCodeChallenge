@@ -20,7 +20,7 @@ describe("Main Component", () => {
 
   it("shows error if fields are empty on submit", async () => {
     render(<Main />);
-    userEvent.click(screen.getByRole("button", { name: /Buscar contratos/i }));
-    expect(await screen.findByText(/Todos los campos son requeridos/i)).toBeInTheDocument();
+    userEvent.click(screen.getByRole("button", { name: /Find contracts/i }));
+    expect(await screen.findByText(/Fields are required, please check/i)).toBeInTheDocument();
   });
 });
